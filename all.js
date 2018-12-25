@@ -912,7 +912,7 @@ var Special = function (_BaseSpecial) {
       EL.tHeader = (0, _dom.makeElement)('div', CSS.main + '-test__header');
       EL.tPages = (0, _dom.makeElement)('div', CSS.main + '-test__pages');
       EL.tTitle = (0, _dom.makeElement)('div', CSS.main + '-test__title', {
-        textContent: 'Фэйк или правда?'
+        textContent: 'Фейк или правда?'
       });
 
       EL.tHeader.appendChild(EL.tPages);
@@ -1004,10 +1004,10 @@ var Special = function (_BaseSpecial) {
 
       if (q.options[index].isCorrect) {
         this.correctAnswers += 1;
-        EL.tAnswerText.textContent = q.answer.correct;
+        EL.tAnswerText.innerHTML = q.answer.correct;
         el.classList.add('is-correct');
       } else {
-        EL.tAnswerText.textContent = q.answer.incorrect;
+        EL.tAnswerText.innerHTML = q.answer.incorrect;
         el.classList.add('is-incorrect');
       }
 
@@ -1051,7 +1051,7 @@ var Special = function (_BaseSpecial) {
       EL.rImg.className = '';
       EL.rImg.classList.add(CSS.main + '-result__img');
       EL.rImg.classList.add(CSS.main + '-result__img--' + (index + 1));
-      EL.rResult.textContent = this.correctAnswers + ' \u0438\u0437 ' + _data2.default.questions.length + ' \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0445 \u043E\u0442\u0432\u0435\u0442\u043E\u0432:';
+      EL.rResult.textContent = this.correctAnswers + ' \u0438\u0437 ' + _data2.default.questions.length + ' \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0445 \u043E\u0442\u0432\u0435\u0442\u043E\u0432';
       EL.rTitle.innerHTML = result.title;
 
       (0, _dom.removeChildren)(EL.rShare);
@@ -1295,7 +1295,7 @@ exports.default = {
   text: '<p>В 2018 году стало ещё сложнее понять, кому доверять, а кому — нет.</p><p>Пока СМИ и блогеры соревнуются, кто быстрей, проверка информации всё чаще перекладывается на плечи читателя. Давайте узнаем, насколько сложно вас обмануть.</p>',
   images: ['https://leonardo.osnova.io/c0b15f74-9fd1-60ae-ed83-a9af6e9c0d91/', 'https://leonardo.osnova.io/c1771779-70ec-1eac-26db-759c1371d25c/', 'https://leonardo.osnova.io/351b77b9-bccb-5411-6a22-4ee684616422/'],
   questions: [{
-    text: '<span data-fz="44" data-bg="main">Начнём с простого.</span><br><span data-fz="32" data-bd="main">Что из этого было по-настоящему?</span>',
+    text: '<span data-fz="48">Начнём с простого.</span><br><span data-fz="32">Что из этого было <span data-color="white" data-bg="main">по-настоящему?</span></span>',
     answer: {
       correct: 'Всё верно, Путин действительно это пообещал: «Мы, жертвы агрессии, как мученики попадём в рай, а они [агрессоры] просто сдохнут».',
       incorrect: 'Увы, это фейк. А президент пообещал напрямую: «Мы, жертвы агрессии, как мученики попадём в рай, а они просто сдохнут».'
@@ -1311,10 +1311,10 @@ exports.default = {
       isCorrect: true
     }]
   }, {
-    text: '<span data-fz="40">Повысим сложность.</span><br><span data-fz="40" data-color="main" data-bg="black">Где тут правда?</span>',
+    text: '<span data-fz="40">Повысим сложность.<br>Где тут <span data-color="white" data-bg="main">правда?</span></span>',
     answer: {
       correct: 'Да, было дело. Правда, в IT-отрасли посоветовали этими прокси не пользоваться.',
-      incorrect: 'Упс! Сомневайтесь, даже если новость очень похожа на правду.'
+      incorrect: 'Упс!  Сомневайтесь, даже если новость очень похожа на правду. В реальности были только прокси от Mail.Ru Group.'
     },
     options: [{
       text: 'Илон Маск назвал бортовую систему Falcon 9 в честь певицы Граймс'
@@ -1327,7 +1327,7 @@ exports.default = {
       text: 'Сборная России по футболу посетила церковь перед матчем с Испанией'
     }]
   }, {
-    text: '<span data-fz="28">Три заголовка про российские <span data-color="white" data-bg="main">госорганы</span> — правда. Какой из них — это <span data-color="main" data-bd="main">враньё</span>?</span>',
+    text: '<span data-fz="28">Три заголовка про российские госорганы — правда. Какой из них — это <span data-color="white" data-bg="main">фейк?</span></span>',
     answer: {
       correct: 'Вы правы, это фейк. Чтобы всегда быть уверенным, проверяйте первоисточник.',
       incorrect: 'Так и было, честное слово! Чтобы быть уверенным, проверяйте первоисточник.'
@@ -1343,7 +1343,7 @@ exports.default = {
       text: 'Глава СК попытался обвинить Telegram в терактах, но перепутал его с Инстаграмом'
     }]
   }, {
-    text: '<span data-color="white" data-bg="main">Кликбейт</span> — одна из форм обмана читателя. И в него умеют даже нейросети. Что из этого написал <span data-bd="black">живой человек</span>?',
+    text: 'Кликбейт — одна из форм обмана читателя,<br>и в него <a href="https://habr.com/post/345190/" target="_blank">умеют</a> даже нейросети. Что из этого <span data-color="white" data-bg="main">написал живой человек?</span>',
     answer: {
       correct: 'Да, этот заголовок написал живой редактор «Ленты.ру». Речь шла о несостоявшемся действе на конференции в Лас-Вегасе.',
       incorrect: 'Увы, это текст, сгенерированный пользователем «Хабра» с помощью нейросетей на основе материалов «Ленты.ру». А вот про оргию написал настоящий сотрудник издания.'
@@ -1359,7 +1359,7 @@ exports.default = {
       text: 'США потребовали дать в морду Жиркову'
     }]
   }, {
-    text: '<span data-bd="main">Новости на TJ порой кажутся невозможными</span>. <span data-fz="48px" data-color="white" data-bg="main">Что из этого неправда?</span>',
+    text: 'Новости на TJ порой кажутся невозможными.<br><span data-fz="40">Что из этого <span data-color="white" data-bg="main">не было на TJ?</span></span>',
     answer: {
       correct: 'Вы правы, это полный фейк. Нечто похожее Якубович говорил про «Поле Чудес», но Первый канал обвинил журналистов в вырывании слов из контекста.',
       incorrect: 'Увы, так всё и было. Вариант про Диброва — фейк. Нечто похожее Якубович говорил про «Поле Чудес», но Первый канал обвинил журналистов в вырывании из контекста. '
@@ -1375,7 +1375,7 @@ exports.default = {
       text: 'Глава ЦИК сделала пресс-секретарю Путина замечание за агитацию в его пользу'
     }]
   }, {
-    text: '<span data-fz="26"><span data-color="white" data-bg="main">Давайте разберёмся.</span><br> Чьи заголовки <span data-bd="main">хотя бы иногда</span><br>оказываются правдой?</span>',
+    text: 'Давайте разберёмся.<br>Чьи заголовки хотя бы<br><span data-color="white" data-bg="main">иногда оказываются правдой?</span>',
     answer: {
       correct: 'Да, ФАН — это официально зарегистрированное СМИ. Но его связывают с «фабрикой троллей», которая могла повлиять на выборы в США.',
       incorrect: 'Нет, все материалы в этом издании — фейк. Регистрация СМИ есть только у ФАН, но это издание считается связанным с «фабрикой троллей».'
@@ -1388,13 +1388,13 @@ exports.default = {
     }, {
       text: 'Агентство «Интерсакс»'
     }, {
-      text: 'Издание Onion'
+      text: 'Издание The Onion'
     }]
   }, {
-    text: '<span data-fz="26"><span data-color="main" data-bd="main">Дмитрий Киселёв</span> в эфире «России 1» зачитал рэп на стихи русского поэта.<br><span data-color="white" data-bg="black">Что именно?</span></span>',
+    text: 'Дмитрий Киселёв в эфире «России 1»<br><span data-color="white" data-bg="main">зачитал рэп</span> на стихи русского поэта.<br>Что именно?',
     answer: {
-      correct: 'Раунд! Вы правы, таким специфичным образом телеведущий поддержал рэпера Хаски.',
-      incorrect: 'Не лучший ваш раунд. Киселёв зачитал стихи Маяковского, чтобы поддержать Хаски.'
+      correct: 'Раунд! Вы правы, таким специфичным образом телеведущий <a href="https://www.youtube.com/watch?v=JGiDXl6i7as" target="_blank">поддержал</a> рэпера Хаски.',
+      incorrect: 'Не лучший ваш раунд. Киселёв <a href="https://www.youtube.com/watch?v=JGiDXl6i7as" target="_blank">зачитал</a> стихи Маяковского, чтобы поддержать Хаски.'
     },
     options: [{
       text: '«Чиновник и поэт» Александра Пушкина'
@@ -1407,7 +1407,7 @@ exports.default = {
       text: '«Не везёт тебе, Алёша» Максима Горького'
     }]
   }, {
-    text: 'Все эти люди живы и здоровы. Но <span data-color="white" data-bg="main">только один</span> из них не стал жертвой фейковой новости о смерти. <span data-color="main" data-bd="black">Кто это?</span>',
+    text: 'Все эти люди живы и здоровы. Но <span data-color="white" data-bg="main">только один из них не стал</span> жертвой фейковой новости о смерти. Кто это?',
     answer: {
       correct: 'Вы правы, речь о Дебенедетти — авторе фейковых новостей о смертях известных персон. Так он проверяет, насколько журналисты доверчивы.',
       incorrect: 'Увы, в соцсетях ходили ложные слухи о смерти этой знаменитости. А речь всё-таки о Дебенедетти — авторе многих подобных фейковых новостей.'
@@ -1423,7 +1423,7 @@ exports.default = {
       text: 'Режиссёр Жан-Люк Годар'
     }]
   }, {
-    text: '<span data-bd="main">СМИ часто пишут, как кто-то оправдывается.</span><br>В каком случае уместно написать, что человек <span data-color="white" data-bg="main">«опроверг»</span> некие сведения?',
+    text: 'СМИ часто пишут, как кто-то оправдывается.<br>В каком случае <span data-color="white" data-bg="main">уместно написать</span>, что человек «опроверг» некие сведения?',
     answer: {
       correct: 'Слово «опроверг» здесь уместно, потому что предоставлены доказательства. Иначе лучше было бы написать «отверг» или «отрицает». Жаль, что такой ситуации никогда не было. ',
       incorrect: 'Нет, слово «опроверг» подходит, если предоставлены доказательства точки зрения. На самом деле Песков «отрицал» или «отвергал» сведения, просто называя их вымыслом. '
