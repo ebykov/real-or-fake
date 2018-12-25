@@ -1291,7 +1291,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  title: 'Реальность vs фейк: сможете отличить?',
+  title: 'Реальная новость или фейк. Сможете отличить?',
   text: '<p>В 2018 году стало ещё сложнее понять, кому доверять, а кому — нет.</p><p>Пока СМИ и блогеры соревнуются, кто быстрей, проверка информации всё чаще перекладывается на плечи читателя. Давайте узнаем, насколько сложно вас обмануть.</p>',
   images: ['https://leonardo.osnova.io/c0b15f74-9fd1-60ae-ed83-a9af6e9c0d91/', 'https://leonardo.osnova.io/c1771779-70ec-1eac-26db-759c1371d25c/', 'https://leonardo.osnova.io/351b77b9-bccb-5411-6a22-4ee684616422/'],
   questions: [{
