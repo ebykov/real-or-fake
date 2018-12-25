@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:500,700');
+
+@import 'mq'
+@import 'functions'
+@import 'keyframes'
+
+$colors = {
+  main: #E8A427,
+  gray: #6E6E6E,
+}
+
+fontOswald(weight = 500)
+  font-family: 'Oswald', 'Roboto Condensed', 'Roboto', sans-serif
+  font-weight: weight
+
+.rof
+  position: relative
+  z-index: 99
+  width: 640px
+  max-width: 100%
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  line-height: normal
+  text-size-adjust: 100%
+
+  & *
+  & *:before
+  & *:after
+    box-sizing: border-box
+
+  svg
+    display block
+    fill currentColor
+    pointer-events none
+
+  & b
+    font-weight: 700
+
+  & button
+    outline: none
+    cursor: pointer
+    appearance: none
+
+  &__bg
+    position: fixed
+    z-index: 1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    width: 100%
+    height: 100%
+    background-color: #F5F5F5
+    background-image: url('https://leonardo.osnova.io/0f867527-2091-bda5-f100-14751a478a7c/')
+    background-position: center
+    background-repeat: no-repeat
+
+    ^[0].is-feed &
+      position: absolute
+
+  &__inner
+    position: relative
+    z-index: 2
+
+    @media $mq.mobile
+      padding: 0 5px
+
+  &-enter
+    min-height: 400px
+    padding: 10px
+    background-color: $colors.main
+    border: 2px solid #000
+
+    @media $mq.notMobile
+      min-height: 600px
+      padding: 50px 20px 10px 40px
+      border-width: 4px
+
+    &__img
+      position: absolute
+      top: 50px
+      right: 0
+      transform: translate3d(50%, 0, 0)
+
+      @media $mq.mobile
+        display: none !important
+
+      &--2
+        opacity: 0
+        animation: rofImgSwitch2 3s linear infinite
+
+      &--3
+        opacity: 0
+        animation: rofImgSwitch3 3s linear infinite
+
+    &__inner
+      position: relative
+      z-index: 1
+
+    &__headline
+      fontOswald(700)
+      font-size: 14px
+      letter-spacing: .5em
+      text-transform: uppercase
+
+      @media $mq.notMobile
+        font-size: 18px
+
+    &__title
+      width: 400px
+      max-width: 100%
+      margin-top: 4px
+      color: #fff
+      fontOswald(700)
+      font-size: 28px
+      line-height: 1.3em
+      text-transform: uppercase
+
+      a&
+        display: block
+        color: #fff !important
+        border: 0 !important
+
+        &:hover
+          opacity: .6
+
+          @media $mq.notHover
+            opacity: 1
+
+      @media $mq.notMobile
+        font-size: 36px
+        line-height: 1.639em
+
+    &__text
+      width: 380px
+      max-width: 100%
+      margin-top: 22px
+      line-height: 1.2em
+
+      @media $mq.notMobile
+        line-height: 1.625em
+
+      & p
+        padding: 0
+        margin: 0 !important
+
+        &:not(:last-child)
+          margin-bottom: 0.938em !important
+
+    &__btn
+      display: block
+      width: 180px
+      height: 40px
+      padding: 0
+      margin: 0
+      margin-top: 30px
+      color: $colors.gray
+      fontOswald()
+      font-size: 20px
+      text-transform: uppercase
+      border: 2px solid $colors.gray
+      background-color: #fff
+
+      @media $mq.notMobile
+        width: 220px
+        height: 60px
+        margin-top: 90px
+        font-size: 24px
+
+      &::after
+        content: attr(data-caption)
+
+      &:hover
+
+        &::after
+          content: attr(data-hover-caption)
+
+        @media $mq.notHover
+          &::after
+            content: attr(data-caption)
+
+  &-test
+    min-height: 400px
+    padding: 10px
+    border: 2px solid #000
+    background-color: #fff
+
+    @media $mq.notMobile
+      min-height: 600px
+      padding: 45px 40px 10px
+      border-width: 4px
+
+    &__header
+      display: flex
+      align-items: center
+
+    &__pages
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 35px
+      height: 20px
+      padding: 3px 5px 5px
+      color: #fff
+      fontOswald(700)
+      font-size: 14px
+      line-height: 1
+      background-color: #000
+
+      @media $mq.notMobile
+        width: 50px
+        height: 30px
+        font-size: 24px
+
+    &__title
+      margin-left: 10px
+      color: $colors.main
+      fontOswald(700)
+      font-size: 18px
+      text-transform: uppercase
+
+      @media $mq.notMobile
+        margin-left: 15px
+        font-size: 24px
+
+    &__body
+      margin-top: 10px
+
+      @media $mq.notMobile
+        margin-top: 35px
+
+    &__question
+      fontOswald(700)
+      font-size: 14px
+      line-height: 1.5em
+      text-transform: uppercase
+
+      @media $mq.notMobile
+        font-size: 24px
+        line-height: 1.8em
+
+      & span
+        line-height: 1.5em
+
+        @media $mq.notMobile
+          line-height: 1.8em
+
+      & a
+        color: $colors.main !important
+        line-height: 1.5em !important
+        border-bottom: 2px solid $colors.main !important
+
+        @media $mq.notMobile
+          line-height: 1.8em !important
+
+        &:hover
+          opacity: .6
+
+          @media $mq.notHover
+            opacity: 1
+
+      & [data-fz="48"]
+        font-size: 24px
+
+        @media $mq.notMobile
+          font-size: 48px
+
+      & [data-fz="40"]
+        font-size: 20px
+
+        @media $mq.notMobile
+          font-size: 40px
+
+      & [data-fz="32"]
+        font-size: 16px
+
+        @media $mq.notMobile
+          font-size: 32px
+
+      & [data-fz="28"]
+
+        @media $mq.notMobile
+          font-size: 28px
+
+      & [data-color="white"]
+        color: #fff
+
+      & [data-bg="main"]
+        background-color: $colors.main
+
+    &__options
+      margin-top: 15px
+
+      @media $mq.notMobile
+        margin-top: 30px
+
+    &__option
+      padding: 5px
+      color: $colors.gray
+      font-size: 14px
+      font-weight: 700
+      border: 2px solid $colors.gray
+      background-color: #fff
+      cursor: pointer
+      user-select: none
+
+      &:not(:last-child)
+        margin-bottom: 6px
+
+      @media $mq.iphone6
+        font-size: 16px
+
+      @media $mq.notMobile
+        padding: 10px 14px
+
+        &:not(:last-child)
+          margin-bottom: 8px
+
+      &:hover
+        color: #fff
+        background-color: $colors.gray
+
+        @media $mq.notHover
+          color: $colors.gray
+          background-color: #fff
+
+      &.is-correct
+        color: #07A23B
+        border-color: #07A23B
+        background-color: #fff
+        cursor: default
+
+      &.is-incorrect
+        color: #E92A40
+        border-color: #E92A40
+        background-color: #fff
+        cursor: default
+
+    &__answer
+      margin-top: 20px
+
+    &__answer-text
+      color: $colors.gray
+      font-weight: 700
+      line-height: 1.2em
+
+      & a
+        color: $colors.gray !important
+        border-bottom: 1px solid $colors.gray !important
+
+        &:hover
+          opacity: .6
+
+          @media $mq.notHover
+            opacity: 1
+
+      @media $mq.notMobile
+        line-height: 1.5em
+
+    &__btn
+      display: block
+      width: 140px
+      height: 40px
+      padding: 0
+      margin: 0
+      margin-top: 30px
+      color: $colors.gray
+      font-size: 16px
+      font-weight: 700
+      text-transform: uppercase
+      border: 2px solid $colors.gray
+      background-color: #fff
+
+      @media $mq.notMobile
+        margin-top: 60px
+
+      &:hover
+        color: #fff
+        background-color: $colors.gray
+
+        @media $mq.notHover
+          color: $colors.gray
+          background-color: #fff
+
+  &-result
+    padding: 10px
+    border: 2px solid #000
+    background-color: #fff
+    user-select: none
+
+    @media $mq.notMobile
+      padding: 50px
+      border-width: 4px
+
+    &__img
+      position: absolute
+      top: 35px
+      right: 15px
+
+      @media $mq.mobile
+        transform: scale(.5)
+        transform-origin: top right
+
+      @media $mq.notMobile
+
+        &--1
+          top: 35px
+          right: 58px
+
+        &--2
+          top: 30px
+          right: 70px
+
+        &--3
+          top: 40px
+          right: 55px
+
+        &--4
+          top: 70px
+          right: 30px
+
+    &__inner
+      position: relative
+      z-index: 1
+
+    &__result
+      font-size: 14px
+
+      @media $mq.notMobile
+        font-size: 16px
+
+    &__title
+      margin-top: 8px
+      fontOswald(700)
+      font-size: 22px
+      text-transform: uppercase
+
+      @media $mq.notMobile
+        margin-top: 10px
+        font-size: 30px
+
+    &__share
+      min-height: 30px
+      margin-top: 15px
+
+      @media $mq.notMobile
+        min-height: 44px
+        margin-top: 35px
+
+    &__restart
+      display: inline-flex
+      align-items: center
+      margin-top: 15px
+      line-height: 1
+      cursor: pointer
+
+      @media $mq.notMobile
+        margin-top: 30px
+        font-size: 18px
+
+      &:hover
+        opacity: .6
+
+        @media $mq.notHover
+          opacity: 1
+
+      & svg
+        margin-left: 8px
+
+  .likely
+    &--custom
+      display: flex
+
+    &__widget
+      flex-shrink: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      min-width: 58px
+      height: 30px
+      color: $colors.main
+      border: 1px solid $colors.main
+      background-color: #fff
+      cursor: pointer
+
+      &:not(:last-child)
+        margin-right: 5px
+
+      &:hover
+        color: #fff
+        background-color: $colors.main
+
+      @media $mq.iphone6
+        &:not(:last-child)
+          margin-right: 10px
+
+      @media $mq.notMobile
+        height: 44px
+
+        &--facebook
+          padding: 0 20px 0 8px
+
+    &__counter
+      display: none
+
+    &__icon
+      background-color: transparent
+
+      & svg
+        display: block
+        width: 20px
+        height: @width
+        fill: currentColor
+
+        @media $mq.notMobile
+          width: 24px
+          height: @width
+
+      &--vkontakte
+        & svg
+          width: 24px
+          height: @width
+
+          @media $mq.notMobile
+            width: 28px
+            height: @width
+
+      &--facebook
+
+        @media $mq.notMobile
+          margin-right: 6px
+
+    &__button
+      display: none
+      line-height: 1
+
+      @media $mq.notMobile
+        display: block
