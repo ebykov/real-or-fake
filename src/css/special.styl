@@ -18,6 +18,7 @@ fontOswald(weight = 500)
   z-index: 99
   width: 640px
   max-width: 100%
+  margin: 0 auto
   font-family: 'Roboto', sans-serif
   font-size: 16px
   line-height: normal
@@ -66,23 +67,31 @@ fontOswald(weight = 500)
       padding: 0 5px
 
   &-enter
-    min-height: 400px
+    min-height: 420px
     padding: 10px
     background-color: $colors.main
     border: 2px solid #000
 
-    @media $mq.notMobile
-      min-height: 600px
+    @media $mq.iphone6
+      min-height: 480px
+
+    @media (min-width: 568px)
       padding: 50px 20px 10px 40px
       border-width: 4px
+
+    @media $mq.notMobile
+      min-height: 600px
 
     &__img
       position: absolute
       top: 50px
-      right: 0
+      right: -10px
       transform: translate3d(50%, 0, 0)
 
       @media $mq.mobile
+        display: none !important
+
+      ^[0].is-feed &
         display: none !important
 
       &--2
@@ -103,11 +112,11 @@ fontOswald(weight = 500)
       letter-spacing: .5em
       text-transform: uppercase
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         font-size: 18px
 
     &__title
-      width: 400px
+      width: 440px
       max-width: 100%
       margin-top: 4px
       color: #fff
@@ -127,6 +136,10 @@ fontOswald(weight = 500)
           @media $mq.notHover
             opacity: 1
 
+      @media $mq.iphone6
+        font-size: 32px
+        line-height: 1.5em
+
       @media $mq.notMobile
         font-size: 36px
         line-height: 1.639em
@@ -137,7 +150,11 @@ fontOswald(weight = 500)
       margin-top: 22px
       line-height: 1.2em
 
+      @media $mq.iphone6
+        line-height: 1.3em
+
       @media $mq.notMobile
+        font-size: 18px
         line-height: 1.625em
 
       & p
@@ -161,11 +178,13 @@ fontOswald(weight = 500)
       border: 2px solid $colors.gray
       background-color: #fff
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         width: 220px
         height: 60px
-        margin-top: 90px
         font-size: 24px
+
+      @media $mq.notMobile
+        margin-top: 60px
 
       &::after
         content: attr(data-caption)
@@ -180,15 +199,20 @@ fontOswald(weight = 500)
             content: attr(data-caption)
 
   &-test
-    min-height: 400px
+    min-height: 420px
     padding: 10px
     border: 2px solid #000
     background-color: #fff
 
-    @media $mq.notMobile
-      min-height: 600px
+    @media $mq.iphone6
+      min-height: 480px
+
+    @media (min-width: 568px)
       padding: 45px 40px 10px
       border-width: 4px
+
+    @media $mq.notMobile
+      min-height: 600px
 
     &__header
       display: flex
@@ -262,11 +286,17 @@ fontOswald(weight = 500)
       & [data-fz="48"]
         font-size: 24px
 
+        @media $mq.iphone6
+          font-size: 28px
+
         @media $mq.notMobile
           font-size: 48px
 
       & [data-fz="40"]
         font-size: 20px
+
+        @media $mq.iphone6
+          font-size: 22px
 
         @media $mq.notMobile
           font-size: 40px
@@ -274,10 +304,16 @@ fontOswald(weight = 500)
       & [data-fz="32"]
         font-size: 16px
 
+        @media $mq.iphone6
+          font-size: 18px
+
         @media $mq.notMobile
           font-size: 32px
 
       & [data-fz="28"]
+
+        @media $mq.iphone6
+          font-size: 16px
 
         @media $mq.notMobile
           font-size: 28px
@@ -388,34 +424,64 @@ fontOswald(weight = 500)
     background-color: #fff
     user-select: none
 
-    @media $mq.notMobile
+    @media (min-width: 568px)
       padding: 50px
       border-width: 4px
 
     &__img
       position: absolute
       top: 35px
-      right: 15px
 
-      @media $mq.mobile
+      @media (max-width: 567px)
         transform: scale(.5)
-        transform-origin: top right
+        transform-origin: top left
 
-      @media $mq.notMobile
+      &--1
 
-        &--1
+        @media $mq.iphone5
+          left: 200px
+
+        @media (min-width: 375px) and (max-width: 567px)
+          left: 250px
+
+        @media (min-width: 568px)
           top: 35px
           right: 58px
 
-        &--2
+      &--2
+
+        @media (max-width: 567px)
+          left: 200px
+
+        @media (min-width: 568px)
           top: 30px
           right: 70px
 
-        &--3
+      &--3
+
+        @media $mq.iphone5
+          top: 100px
+          left: 212px
+
+        @media (min-width: 375px) and (max-width: 567px)
+          top: 20px
+          left: 270px
+
+        @media (min-width: 568px)
           top: 40px
           right: 55px
 
-        &--4
+      &--4
+
+        @media $mq.iphone5
+          top: 110px
+          left: 230px
+
+        @media (min-width: 375px) and (max-width: 567px)
+          top: 15px
+          left: 290px
+
+        @media (min-width: 568px)
           top: 70px
           right: 30px
 
@@ -426,7 +492,7 @@ fontOswald(weight = 500)
     &__result
       font-size: 14px
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         font-size: 16px
 
     &__title
@@ -435,15 +501,20 @@ fontOswald(weight = 500)
       font-size: 22px
       text-transform: uppercase
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         margin-top: 10px
+
+      @media (min-width: 568px)
+        font-size: 26px
+
+      @media $mq.notMobile
         font-size: 30px
 
     &__share
       min-height: 30px
       margin-top: 15px
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         min-height: 44px
         margin-top: 35px
 
@@ -454,7 +525,7 @@ fontOswald(weight = 500)
       line-height: 1
       cursor: pointer
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         margin-top: 30px
         font-size: 18px
 
@@ -494,7 +565,7 @@ fontOswald(weight = 500)
         &:not(:last-child)
           margin-right: 10px
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         height: 44px
 
         &--facebook
@@ -512,7 +583,7 @@ fontOswald(weight = 500)
         height: @width
         fill: currentColor
 
-        @media $mq.notMobile
+        @media $mq.iphone6
           width: 24px
           height: @width
 
@@ -521,18 +592,18 @@ fontOswald(weight = 500)
           width: 24px
           height: @width
 
-          @media $mq.notMobile
+          @media $mq.iphone6
             width: 28px
             height: @width
 
       &--facebook
 
-        @media $mq.notMobile
+        @media $mq.iphone6
           margin-right: 6px
 
     &__button
       display: none
       line-height: 1
 
-      @media $mq.notMobile
+      @media $mq.iphone6
         display: block
