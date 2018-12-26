@@ -258,6 +258,8 @@ class Special extends BaseSpecial {
   }
 
   restart() {
+    Analytics.sendEvent('Restart');
+
     this.setInitialParams();
 
     EL.tBtn.textContent = 'Далее';
